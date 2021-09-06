@@ -3,22 +3,32 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
+#include <unistd.h>
+#include <cstddef>
+#include <set>
 
 #include "process.h"
 #include "processor.h"
+#include "linux_parser.h"
+
+using std::set;
+using std::size_t;
+using std::string;
+using std::vector;
 
 class System {
  public:
-  Processor& Cpu();                   // TODO: See src/system.cpp
-  std::vector<Process>& Processes();  // TODO: See src/system.cpp
-  float MemoryUtilization();          // TODO: See src/system.cpp
-  long UpTime();                      // TODO: See src/system.cpp
-  int TotalProcesses();               // TODO: See src/system.cpp
-  int RunningProcesses();             // TODO: See src/system.cpp
-  std::string Kernel();               // TODO: See src/system.cpp
-  std::string OperatingSystem();      // TODO: See src/system.cpp
+  Processor& Cpu();                   
+  std::vector<Process>& Processes();  
+  float MemoryUtilization();    
+  long UpTime();                      
+  int TotalProcesses();               
+  int RunningProcesses();             
+  std::string Kernel();               
+  std::string OperatingSystem();      
 
-  // TODO: Define any necessary private members
+  // Define any necessary private members
  private:
   Processor cpu_ = {};
   std::vector<Process> processes_ = {};
