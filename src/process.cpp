@@ -9,9 +9,7 @@ int Process::Pid() {
 
 bool Process::IdleProcess(){
     std::string state = LinuxParser::State(pid_);
-    if (state == "I"){return true;}
-    else {return false;}
-    return false;
+    return state=="I";
 }
 
 // Return this process's CPU utilization
@@ -58,6 +56,5 @@ long int Process::UpTime() {
 
 // Overload the "less than" comparison operator for Process objects
 bool Process::operator<(Process &a) {
-    if (std::stoi(Ram()) < std::stoi(a.Ram()) ){return true;}
-    return false;
+    return std::stoi(Ram()) < std::stoi(a.Ram());
 }
